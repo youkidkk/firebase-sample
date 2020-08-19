@@ -21,10 +21,8 @@ const db = firebase.firestore();
       number: 12345,
       text: "Sample document",
     });
-    collection
-      .doc(docRef.id)
-      .get()
-      .then(doc => console.log(doc.data()));
+    const snapShot = await collection.doc(docRef.id).get();
+    console.log("Added: ", snapShot.data());
   } catch (error) {
     console.error("Error: ", error);
   }
